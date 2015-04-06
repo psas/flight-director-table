@@ -1,0 +1,10 @@
+Preparing the NUC for server
+	1)	Add to /etc/apt/sources
+			deb http://debian.osuosl.org/debian/ wheezy main contrib non-free
+			deb-src http://debian.osuosl.org/debian/ wheezy main contrib non-free
+			deb http://http.debian.net/debian wheezy-backport
+			deb-src http://http.debian.net/debian wheezy-backport
+	2)	Run apt-get update and apt-get upgrade
+	3)	Install kernel version greater than 3.13 (for iwlwifi to support the Intel Wireless AC 7265)
+	4)	Follow the README in each PSAS server to install
+
