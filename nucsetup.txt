@@ -1,10 +1,27 @@
-Preparing the NUC for server
-	1)	Add to /etc/apt/sources
-			deb http://debian.osuosl.org/debian/ wheezy main contrib non-free
-			deb-src http://debian.osuosl.org/debian/ wheezy main contrib non-free
-			deb http://http.debian.net/debian wheezy-backport
-			deb-src http://http.debian.net/debian wheezy-backport
-	2)	Run apt-get update and apt-get upgrade
-	3)	Install kernel version greater than 3.13 (for iwlwifi to support the Intel Wireless AC 7265)
-	4)	Follow the README in each PSAS server to install
+# INTRODUCTION #
+The Intel NUC is currently being prepared to replace our current implementation of ground control systems.
+Instead of using a member's laptop and a wireless AP, we plan on condensing the components into the NUC,
+using it's WiFi card as an integrated component, reducing the amount of clutter.
+
+
+## Preparing the NUC ##
+	1. Install Debian (I used 8.0 Testing netinstall)
+	    -Load all drivers during install
+	    -Installed with SSH server, but no web server
+	2. Add following lines to /etc/apt/sources.list (these WILL VARY based on your Debain version name)
+	 * deb http://http.debian.net/debian/ wheezy main contrib non-free 
+	 * deb http://debian.osuosl.org/debian/ wheezy main contrib non-free
+	 * deb-src http://debian.osuosl.org/debian/ wheezy main contrib non-free	
+	3. Run these commands
+	    apt-get update && apt-get upgrade
+	4. To install Wi-Fi on Debian Testing (kernel 3.16)
+	 1. apt-get install firmware-iwlwifi
+	 2. modprobe -r iwlwifi ; modprobe iwlwifi
+	 3. reboot	
+		#### Prior to installing pip packages listed in the readme files, create a python virtual environment 
+	5) Clone the required software from GitHub with these commands
+	    git clone https://github.com/psas/telemetry.git
+	    git clone https://github.com/psas/commander.git
+	    git clone https://github.com/psas/launch-tower-comm.git
+	6) Follow the repective README files for each
 
