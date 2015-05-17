@@ -1,0 +1,31 @@
+# Overview and Design
+
+The FDT has a custom serial-flow uninterruptable power system (UPS):
+
+{{{
+120Vac (wall or generator) ---> battery charger ---> Pb acid batteries -> True sine inverter ---> 120Vac loads
+                                           |
+                                           \-----> 12Vdc loads
+}}}
+
+So how much power and battery capacity do we need? Using a Kill-a-watt energy meeter, the FDT conservatively requires:
+
+1. Minimal power mode ("battery mode")
+   - 75W FDT equipment + nothing else (laptops unplugged) = 75W = 7A @ 12Vnom
+2. Maximum power mode ("shore power mode")
+   - 75W FDT + 75W charging laptop one + 75W charging laptop two = 225W = 19A @ 12Vnom
+
+We usually run with a generator running, so we don't need a lot of time on the batteries. That said, we'd like to be able to last for at least 4 hours in the worst case if something terrible happens to our generator - enough time to still launch. That means:
+
+- Battery mode = 4 * 7 = 28 AHrs
+- Shore power mode = 4 * 19 = 76 AHrs
+
+Light weight and modularity are probably best, so multiple smaller batteries may be better than 1 huge one. For example, two PowerSonic PS-1214 batteries give us 28 Ahr in two 9 lb batteries. We can do use two more for the launch tower table.
+
+# Components
+
+We decided on:
+
+- Battery charger: Noco "Genious" G26000 26A/30Amax lead acid battery charger
+- Battery: TBD
+- Inverter: Micro Solar "Pure Sine Wave Inverter" model INV-1000PS rated at 1kW continuous/2kW surge
