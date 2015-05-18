@@ -2,11 +2,10 @@
 
 The FDT has a custom serial-flow uninterruptable power system (UPS):
 
-{{{
-120Vac (wall or generator) ---> battery charger ---> Pb acid batteries -> True sine inverter ---> 120Vac loads
-                                           |
-                                           \-----> 12Vdc loads
-}}}
+    
+     120Vac (wall or generator) ---> battery charger ---> Pb acid batteries -> True sine inverter ---> 120Vac loads
+                                                |
+                                                \-----> 12Vdc loads
 
 So how much power and battery capacity do we need? Using a Kill-a-watt energy meeter, the FDT conservatively requires:
 
@@ -27,5 +26,5 @@ Light weight and modularity are probably best, so multiple smaller batteries may
 We decided on:
 
 - Battery charger: Noco "Genious" G26000 26A/30Amax lead acid battery charger
-- Battery: TBD
+- Battery: Duracell 12V 18Ahr (Batteries PLus DURA12-18F2, 12.45 lbs)
 - Inverter: Micro Solar "Pure Sine Wave Inverter" model INV-1000PS rated at 1kW continuous/2kW surge
